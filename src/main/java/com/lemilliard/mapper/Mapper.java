@@ -34,6 +34,10 @@ public class Mapper {
 		}
 	}
 
+	public HashMap<String, List<String>> processPhrase(String phrase) {
+		return processPhrase(phrase, getWordTypes().toArray(new String[0]));
+	}
+
 	public HashMap<String, List<String>> processPhrase(String phrase, String... wordTypes) {
 		HashMap<String, List<String>> result = new HashMap<>();
 		List<String> phraseWords = splitPhrase(phrase);
@@ -52,6 +56,14 @@ public class Mapper {
 			matches.addAll(searchMatchesByType(phraseWord, wordType));
 		}
 		return matches;
+	}
+
+	public List<String> getWordTypes() {
+		List<String> wordTypes = new ArrayList<>();
+		for (Dictionary dictionary : dictionaries) {
+			wordTypes.add(dictionary.getType());
+		}
+		return wordTypes;
 	}
 
 	private List<String> splitPhrase(String phrase) {
