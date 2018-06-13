@@ -1,0 +1,69 @@
+[
+  {
+    "type": "ACTION",
+    "words": [
+      {
+        "value": "cherche",
+        "matches": [
+          "recherche",
+          "trouve"
+        ]
+      },
+      {
+        "value": "besoin",
+        "matches": [
+          "j'aimerais"
+        ]
+      },
+      {
+        "value": "navigation",
+        "matches": [
+          "va (.*) page",
+          "fais voir"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "THEME",
+    "words": [
+      {
+        "value": "travail",
+        "matches": [
+          "job",
+          "emploi"
+        ]
+      },
+      {
+        "value": "formation",
+        "matches": [
+          "diplome",
+          "certification"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "SUJET",
+    "words": [
+      {
+        "value": "suivant",
+        "matches": [
+          "suivante",
+          "prochain",
+          "prochaine",
+          "apres",
+          "d'apres"
+        ]
+      },
+      {
+        "value": "precedent",
+        "matches": [
+          "precedente",
+          "avant",
+          "d'avant"
+        ]
+      }
+    ]
+  }
+]

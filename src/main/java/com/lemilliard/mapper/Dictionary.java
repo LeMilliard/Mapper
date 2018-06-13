@@ -1,5 +1,6 @@
 package com.lemilliard.mapper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,5 +17,15 @@ public class Dictionary {
 
 	public List<Word> getWords() {
 		return words;
+	}
+
+	public List<Word> getMatches(String phrase) {
+		List<Word> matches = new ArrayList<>();
+		for (Word word : words) {
+			if (word.isPresentInPhrase(phrase)) {
+				matches.add(word);
+			}
+		}
+		return matches;
 	}
 }

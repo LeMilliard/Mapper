@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 
 import java.io.File;
 import java.io.FileReader;
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -39,11 +40,14 @@ public class Mapper {
 	}
 
 	public HashMap<String, List<String>> processPhrase(String phrase, String... wordTypes) {
+		Dictionary dictionary;
+		String normalizedPhrase = normalizeString(phrase);
 		HashMap<String, List<String>> result = new HashMap<>();
-		List<String> phraseWords = splitPhrase(phrase);
+//		List<String> phraseWords = splitPhrase(phrase);
 		for (String wordType : wordTypes) {
 			result.put(wordType, new ArrayList<>());
-			for (Word word : getMatchesByType(phraseWords, wordType)) {
+			dictionary = getDictionaryByType(wordType);
+			for (Word word : dictionary.getMatches(normalizedPhrase)) {
 				result.get(wordType).add(word.getValue());
 			}
 		}
@@ -93,5 +97,11 @@ public class Mapper {
 			}
 		}
 		return matches;
+	}
+
+	public static String normalizeString(String phrase) {
+		return Normalizer
+				.normalize(phrase.toLowerCase(), Normalizer.Form.NFD)
+				.replaceAll("[\u0300-\u036F]", "");
 	}
 }
