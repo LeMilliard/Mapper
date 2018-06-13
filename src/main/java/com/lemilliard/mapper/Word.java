@@ -22,18 +22,6 @@ public class Word {
 		return matches;
 	}
 
-	public boolean doesMatchWord(String word) {
-		boolean match = doesWordsMatch(word, value);
-		int i = 0;
-		while (i < matches.size() && !match) {
-			if (doesWordsMatch(word, matches.get(i))) {
-				match = true;
-			}
-			i++;
-		}
-		return match;
-	}
-
 	public boolean isPresentInPhrase(String phrase) {
 		boolean present = doesPhraseContainsWord(phrase, value);
 		int i = 0;
@@ -51,15 +39,5 @@ public class Word {
 		Pattern pattern = Pattern.compile(normalizedWord);
 		Matcher matcher = pattern.matcher(phrase);
 		return matcher.find();
-	}
-
-	private boolean doesWordsMatch(String word1, String word2) {
-		return normalizeWord(word1).equals(normalizeWord(word2));
-	}
-
-	private String normalizeWord(String word) {
-		return Normalizer
-				.normalize(word.toLowerCase(), Normalizer.Form.NFD)
-				.replaceAll("[\u0300-\u036F]", "");
 	}
 }

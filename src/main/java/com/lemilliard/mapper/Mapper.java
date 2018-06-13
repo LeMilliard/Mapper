@@ -43,7 +43,6 @@ public class Mapper {
 		Dictionary dictionary;
 		String normalizedPhrase = normalizeString(phrase);
 		HashMap<String, List<String>> result = new HashMap<>();
-//		List<String> phraseWords = splitPhrase(phrase);
 		for (String wordType : wordTypes) {
 			result.put(wordType, new ArrayList<>());
 			dictionary = getDictionaryByType(wordType);
@@ -54,24 +53,12 @@ public class Mapper {
 		return result;
 	}
 
-	public List<Word> getMatchesByType(List<String> phraseWords, String wordType) {
-		List<Word> matches = new ArrayList<>();
-		for (String phraseWord : phraseWords) {
-			matches.addAll(searchMatchesByType(phraseWord, wordType));
-		}
-		return matches;
-	}
-
 	public List<String> getWordTypes() {
 		List<String> wordTypes = new ArrayList<>();
 		for (Dictionary dictionary : dictionaries) {
 			wordTypes.add(dictionary.getType());
 		}
 		return wordTypes;
-	}
-
-	private List<String> splitPhrase(String phrase) {
-		return Arrays.asList(phrase.split(" "));
 	}
 
 	private Dictionary getDictionaryByType(String type) {
@@ -84,19 +71,6 @@ public class Mapper {
 			i++;
 		}
 		return dictionary;
-	}
-
-	private List<Word> searchMatchesByType(String word, String type) {
-		List<Word> matches = new ArrayList<>();
-		Dictionary dictionary = getDictionaryByType(type);
-		if (dictionary != null) {
-			for (Word dictionaryWord : dictionary.getWords()) {
-				if (dictionaryWord.doesMatchWord(word)) {
-					matches.add(dictionaryWord);
-				}
-			}
-		}
-		return matches;
 	}
 
 	public static String normalizeString(String phrase) {
