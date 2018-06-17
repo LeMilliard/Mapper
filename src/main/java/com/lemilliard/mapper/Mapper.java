@@ -24,6 +24,10 @@ public class Mapper {
 		this.loadDictionaries();
 	}
 
+	public void reload() {
+		this.loadDictionaries();
+	}
+
 	private void loadDictionaries() {
 		try {
 			File file = new File(folder + "/" + filename);
