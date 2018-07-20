@@ -6,7 +6,7 @@
 
     <groupId>com.lemilliard</groupId>
     <artifactId>mapper</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 
     <properties>
         <java.version>1.8</java.version>
@@ -39,6 +39,11 @@
             <id>tkint</id>
             <name>Thomas Kint</name>
             <email>thomaskint.pro@gmail.com</email>
+        </developer>
+        <developer>
+            <id>kbouzan</id>
+            <name>Kevin Bouzan</name>
+            <email>kevin.bouzan@gmail.com</email>
         </developer>
     </developers>
 
