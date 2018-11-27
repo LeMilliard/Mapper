@@ -1,8 +1,8 @@
-# DecisionTree
+# Mapper
 
-[![pipeline status](https://gitlab.com/LeMilliard/DecisionTree/badges/master/pipeline.svg)](https://gitlab.com/LeMilliard/DecisionTree/commits/master)
+[![pipeline status](https://gitlab.com/LeMilliard/Mapper/badges/master/pipeline.svg)](https://gitlab.com/LeMilliard/Mapper/commits/master)
 
-Librairie qui permet de générer et utiliser un arbre de décision, basé sur l'algorithme ID3.
+Librairie qui permet d'analyser et traiter des phrases en se basant sur un ensemble de dictionnaires.
 
 ### Sommaire
 
@@ -23,7 +23,7 @@ Il vous suffit alors d'ajouter la dépendance suivante à votre `pom.xml`:
     <!-- Other dependencies -->
     <dependency>
         <groupId>com.lemilliard</groupId>
-        <artifactId>decisiontree</artifactId>
+        <artifactId>mapper</artifactId>
         <version>${version}</version>
     </dependency>
 </dependencies>
