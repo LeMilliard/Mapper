@@ -1,6 +1,5 @@
 package com.lemilliard.mapper;
 
-import java.text.Normalizer;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -10,19 +9,15 @@ import static com.lemilliard.mapper.Mapper.normalizeString;
 /**
  * @author Thomas Kint
  */
-public class Word {
+class Word {
 	private String value;
 	private List<String> matches;
 
-	public String getValue() {
+	String getValue() {
 		return value;
 	}
 
-	public List<String> getMatches() {
-		return matches;
-	}
-
-	public boolean isPresentInPhrase(String phrase) {
+	boolean isPresentInPhrase(String phrase) {
 		boolean present = doesPhraseContainsWord(phrase, value);
 		int i = 0;
 		while (i < matches.size() && !present) {
